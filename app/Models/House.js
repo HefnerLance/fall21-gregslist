@@ -3,7 +3,6 @@ import { generateId } from "../Utils/generateId.js";
 export class House{
     constructor(houseData){
         this.id = houseData.id,
-        this.size = houseData.size,
         this.rooms = houseData.bedrooms,
         this.bathrooms = houseData.bathrooms,
         this.price = houseData.price,
@@ -18,7 +17,7 @@ export class House{
         <img src="${this.imgUrl}" alt="listing image" class="rounded">
         <div class="card-body">
           <h5 class="d-flex justify-content-between">
-            <span > Size: ${this.size} - Rooms:${this.rooms}</span>
+            <span > Rooms:${this.rooms}</span>
             <span>$ ${this.price}</span>
           </h5>
           <p>${this.description}</p>

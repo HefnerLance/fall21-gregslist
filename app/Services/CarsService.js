@@ -3,7 +3,7 @@ import { Car } from "../Models/Car.js";
 
 // @ts-ignore
 const api = axios.create({
-  baseURL: "https://bcw-sandbox.herokuapp.com/api/cars"
+  baseURL: "https://bcw-sandbox.herokuapp.com/api"
 })
 
 class CarsService {
@@ -19,7 +19,7 @@ class CarsService {
   }
 
   async getCars() {
-    let response = await api.get()
+    let response = await api.get('/cars')
     console.log('what was the response', response)
     ProxyState.cars = response.data.map(c => new Car(c))
     console.log('what is a car', ProxyState.cars)

@@ -14,6 +14,7 @@ export class HousesController {
   constructor() {
     // TODO register the listener for houses
     ProxyState.on('houses', _drawHouses)
+    housesservice.getHouses()
   }
   async addHouse(){
     event.preventDefault();
@@ -23,7 +24,7 @@ export class HousesController {
     // @ts-ignore
     const form= event.target
     const houseData ={
-      size: form.size.value,
+      
       rooms: form.bedrooms.value,
       bathrooms: form.bathrooms.value,
       price: form.price.value,
@@ -35,7 +36,7 @@ export class HousesController {
     try{ 
       await housesservice.addHouse(houseData)
     } catch (e){
-      form.make.classList.add('border-danger')
+      form.house.classList.add('border-danger')
       console.error('[TODO] you were supposed to do this', e)
       return
     
